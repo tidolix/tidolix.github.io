@@ -1,0 +1,67 @@
+
+body {
+    width: 1440px;
+}
+
+#hero {
+    background-image: url("./images/bg-hero-desktop.svg");
+}
+#hero img {
+
+}
+
+.item {
+    margin: auto;
+    width: 80%;
+    height: 400px;
+    border: 1px solid lightgrey;
+}
+
+.item h1 {
+    font-family: "Poppins";
+}
+
+.item p {
+    font-family: "Open Sans";
+}
+
+.icon {
+    border-radius: 50%;
+}
+
+h1 {
+    font-family: Poppins;
+}
+
+main {
+    background-color: hsl(193, 100%, 96%);
+}
+a {
+    padding: 10px 40px;
+    border-radius: 50%;
+    background-color: hsl(322, 100%, 66%);
+}
+
+header a {
+    background-color: unset;
+}
+
+.shadow {
+    box-shadow: 0 0 lightgrey;
+}
+
+footer {
+    background-color: hsl(192, 100%, 9%);
+    color: hsl(193, 100%, 96%);
+}
+
+.ready {
+
+}
+
+.copyright {
+
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
