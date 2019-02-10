@@ -1,32 +1,214 @@
 
 body {
     width: 1440px;
+    margin:auto;
+    font-family: "Open Sans";
 }
-
+a {
+    text-decoration: none;
+    color: unset;
+}
 #hero {
     background-image: url("./images/bg-hero-desktop.svg");
+    padding: 50px;
 }
-#hero img {
-
+.top {
+    display: block;
 }
-
+.container {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+.imgparent {
+    flex: 1 0 65%;
+}
+#hero .mockup {
+    width: 100%;
+}
+#hero .logo {
+    width: 300px;
+}
+#hero a.shadow {
+    float: right;
+}
+* {
+    box-sizing: border-box;
+}
 .item {
-    margin: auto;
+    padding: 80px;
+    margin: 50px auto;
+    display: flex;
     width: 80%;
-    height: 400px;
+    height:400px;
     border: 1px solid lightgrey;
+    position: relative;
+    border-radius: 20px;
+}
+.text-flex {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
+    height: 100%;
+    padding: 50px;
+}
+
+.img-flex {
+    height: 100%;
+}
+.img-flex img {
+    width:100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* JUSTIFY/ALIGN ITEMS 
+in theory can apply to block-level elements
+but in practice imlpementation only supports flex and grid
+*/
+
+/* LEARNINGS IMAGE SCALING
+ height and width properties are not "equivalent" in relevant?
+ setting height -> width aspect ratio automatic
+ setting width -> height not automatic?
+
+ scale image relative to itself: transform: scale(50%);
+*/
+
+/* LEARNINGS CSS DISPLAY
+The display CSS property defines the display type of an element, which consists
+of the two basic qualities of how an element generates boxes — the outer display
+type defining how the box participates in flow layout, and the inner display
+type defining how the children of the box are laid out.
+*/
+
+/* LEARNINGS - CSS table layout
+CSS table layout is acceptable if HTML is not table semantics
+=> using display: table, table-row, table-cell
+
+=> works like a rigid flexbox
+*/
+
+
+/* LEARNINGS :after
+:after pseudo element is placed INSIDE the element, at the very element
+not actually after the element
+*/
+
+/* LEARNINGS INLINE-FLEX/BLOCK with multiple child elements
+=> significance of VERTICAL-ALIGN for positioning in text flow
+=> bottom vertical-align for inline-flex
+*/
+
+/* LEARNINGS FLOAT
+float with clearfix does not affect the relative sizing of sibling elements
+float forces block element
+
+AFTER CLEARFIX: relative height of children doesn't account for clearfix
+=> when position: absolute set, height works but taken out of page flow
+
+*/
+
+/* LEARNINGS
+block element inside inline-block element = ?
+=> block element takes up maximal width, therefore forces parent container to act as block level too?
+
+inline-block with text grows to full width if not constrained
+=> inline-block parents are treated as a single unit of all its children
+=> if one child grows to full-width, the whole container does
+=> if doesn't fit into line, will STAY AS BLOCK and put on next line
+If the content of the inline-block does not fit on a single row, it will try
+to fit as a whole on the next line. This is different from regular inline
+elements, that most of the time is allowed to wrap to the next line.
+*/
+
+.text-trans {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .item h1 {
     font-family: "Poppins";
 }
 
-.item p {
-    font-family: "Open Sans";
+.contact {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+.contact-item * {
+    padding: 6px;
+}
+
+nav {
+    display:flex;
+    flex-wrap: wrap;
+    width: 500px;
+}
+nav * {
+    flex-basis: 200px;
+    flex-shrink: 0;
+    padding: 10px;
 }
 
 .icon {
     border-radius: 50%;
+    border: 1px solid hsl(193, 100%, 96%);
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+img.icon {
+    width: 12px;
+}
+
+footer .logo {
+    height:40px;
+    -webkit-mask: url(./images/logo.svg) no-repeat;
+    mask: url(./images/logo.svg) no-repeat;
+    background: hsl(193, 100%, 96%);
+}
+
+/* FLEX
+=> default align-self is auto = stretch
+=> set to something else to get correct aspect ratio
+=> also reset by explicitly setting height: 100%
+
+flex justify-content does not support "stretch"
+
+default flex-shrink is 1
+
+Difference between FLEX BASIS and WIDTH
+
+Flex relative %width depends on AVAILABLE space
+
+flex shorthand without explicit basis sets basis to 0%
+*/
+/*
+footer .logo svg * {
+    fill: hsl(193, 100%, 96%);
+    color: hsl(193, 100%, 96%);
+    
+    display: block;
+}
+*/
+/* LEARNINGS
+- can use SVG as a MASK to get single color, using CSS property "mask" with no-repeat center
+- alternatively: include svg code and apply fill to all svg elements
+*/
+
+.table {
+    display:flex;
 }
 
 h1 {
@@ -34,9 +216,9 @@ h1 {
 }
 
 main {
-    background-color: hsl(193, 100%, 96%);
+    background-color: white;
 }
-a {
+.aborder {
     padding: 10px 40px;
     border-radius: 50%;
     background-color: hsl(322, 100%, 66%);
@@ -47,20 +229,38 @@ header a {
 }
 
 .shadow {
-    box-shadow: 0 0 lightgrey;
+    box-shadow: 0 0 10px lightgrey;
 }
+
+/* LEARNINGS SHADOW
+default shadow is 0, therefore none
+*/
 
 footer {
     background-color: hsl(192, 100%, 9%);
     color: hsl(193, 100%, 96%);
+    padding: 80px;
+    padding-top: 150px;
 }
-
+main {
+    margin-bottom: 150px;
+    padding: 50px;
+}
 .ready {
-
+    margin: auto;
+    width: 50%;
+    padding: 60px;
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    position: absolute;
+    left: 25%;
+    transform: translateY(-50%);
+    border: 1px solid white;
 }
 
 .copyright {
-
+    text-align: right;
 }
 
 .attribution { font-size: 11px; text-align: center; }
