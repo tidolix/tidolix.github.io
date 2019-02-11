@@ -1,267 +1,163 @@
+/* DOCUMENT
+*/
 
 body {
+    min-width: 700px;
     max-width: 1440px;
-    margin:auto;
+    margin: auto;
     font-family: "Open Sans";
-    position:relative;
+    position: relative;
+    background: white;
 }
+
+html {
+    background: black;
+}
+
+/* SHARED/GENERAL
+*/
+
+.right {
+    float: right;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 a {
     text-decoration: none;
     color: unset;
 }
+
+h1 {
+    font-family: Poppins;
+    font-size: 50px;
+    line-height: 1.5;
+}
+
+h2 {
+    font-family: Poppins;
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+p {
+    margin: 45px 0;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+
+.aborder {
+    display: inline-block;
+    padding: 1em 3em;
+    border-radius: 2em / 50%;
+    background-color: hsl(322, 100%, 66%);
+    color: white;
+}
+
+.shadow {
+    box-shadow: 0 0 16px hsl(0, 0%, 95%);
+}
+
+/* TOP PART
+*/
 #hero {
     background-image: url("./images/bg-hero-desktop.svg");
+    background-color: hsl(193, 100%, 96%);
     padding: 50px;
 }
-.top {
-    display: block;
+
+.top .logo {
+    width: 175px;
 }
+
+.top a {
+    background-color: white;
+    color: unset;
+    margin-top: -1em;
+}
+
+
 .container {
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 40px;
-}
-.imgparent {
-    flex: 1 0 65%;
-}
-#hero .mockup {
-    width: 100%;
-}
-#hero .logo {
-    width: 300px;
+    padding: 20px 0;
 }
 
+.container > * {
+    padding: 30px 0px;
+}
 
+.container> :last-child {
+    padding-left: 80px;
+}
 
-/* WORKFLOW LEARNINGS
-- the initial layout and planning is harder than adding padding and margins after
-- must consider mobile/desktop layout differences for responsive design
-- mobile serving: m-dot vs responsive vs dynamic serve
-    - vs. progressive web app
+.container .intro {
+    width: 44%;
+}
+.intro a {
+    margin: 60px 0;
+}
+.container img {
+    width: 55%;
+}
+
+/* MAIN PART
 */
+main {
+    background-color: white;
+    margin: auto;
+    width: 80%;
+    margin-bottom: 150px;
+    padding: 50px;
+}
 
-#hero a.shadow {
-    float: right;
-}
-* {
-    box-sizing: border-box;
-}
+
 .item {
+    display: flex;
+    height: 400px;
     padding: 80px;
     margin: 50px auto;
-    display: flex;
-    height:400px;
+    min-width: 900px;
+
     border: 1px solid lightgrey;
     position: relative;
     border-radius: 20px;
     overflow: visible;
 }
+
 .text-flex {
     width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    vertical-align: middle;
     height: 100%;
     padding: 50px;
     flex-shrink: 0;
+}
+
+.item p {
+    font-size: 22px;
+    color: hsl(208, 11%, 55%);
 }
 
 /* TODO
 how to shrink with resizing viewport?
 */
 .img-flex {
-    max-height: 100%;
-    max-width: 300px;
+    height: 100%;
 }
 
-/* JUSTIFY/ALIGN ITEMS 
-in theory can apply to block-level elements
-but in practice imlpementation only supports flex and grid
+/* CALL TO ACTION
 */
 
-/* LEARNINGS IMAGE SCALING
- height and width properties are not "equivalent" in relevant?
- setting height -> width aspect ratio automatic
- setting width -> height not automatic?
-
- scale image relative to itself: transform: scale(50%);
-*/
-
-/* LEARNINGS CSS DISPLAY
-The display CSS property defines the display type of an element, which consists
-of the two basic qualities of how an element generates boxes — the outer display
-type defining how the box participates in flow layout, and the inner display
-type defining how the children of the box are laid out.
-*/
-
-/* LEARNINGS - CSS table layout
-CSS table layout is acceptable if HTML is not table semantics
-=> using display: table, table-row, table-cell
-
-=> works like a rigid flexbox
-*/
-
-
-/* LEARNINGS :after
-:after pseudo element is placed INSIDE the element, at the very element
-not actually after the element
-*/
-
-/* LEARNINGS INLINE-FLEX/BLOCK with multiple child elements
-=> significance of VERTICAL-ALIGN for positioning in text flow
-=> bottom vertical-align for inline-flex
-*/
-
-/* LEARNINGS FLOAT
-float with clearfix does not affect the relative sizing of sibling elements
-float forces block element
-
-AFTER CLEARFIX: relative height of children doesn't account for clearfix
-=> when position: absolute set, height works but taken out of page flow
-
-*/
-
-/* LEARNINGS
-block element inside inline-block element = ?
-=> block element takes up maximal width, therefore forces parent container to act as block level too?
-
-inline-block with text grows to full width if not constrained
-=> inline-block parents are treated as a single unit of all its children
-=> if one child grows to full-width, the whole container does
-=> if doesn't fit into line, will STAY AS BLOCK and put on next line
-If the content of the inline-block does not fit on a single row, it will try
-to fit as a whole on the next line. This is different from regular inline
-elements, that most of the time is allowed to wrap to the next line.
-*/
-
-.text-trans {
-    display: block;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.item h1 {
-    font-family: "Poppins";
-}
-
-.contact {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-}
-.contact-item {
-    display: flex;
-    align-items: center;
-    margin: 20px;
-}
-.contact-item * {
-    padding: 6px;
-}
-
-nav {
-    display:flex;
-    flex-wrap: wrap;
-    width: 500px;
-}
-nav * {
-    flex-basis: 200px;
-    flex-shrink: 0;
-    padding: 10px;
-}
-
-.icon {
-    border-radius: 50%;
-    border: 1px solid hsl(193, 100%, 96%);
-    width: 30px;
-    height: 30px;
-    margin: 10px;
-}
-img.icon {
-    width: 12px;
-}
-
-footer .logo {
-    height:40px;
-    -webkit-mask: url(./images/logo.svg) no-repeat;
-    mask: url(./images/logo.svg) no-repeat;
-    background: hsl(193, 100%, 96%);
-}
-
-/* FLEX
-=> default align-self is auto = stretch
-=> set to something else to get correct aspect ratio
-=> also reset by explicitly setting height: 100%
-
-flex justify-content does not support "stretch"
-
-default flex-shrink is 1
-
-Difference between FLEX BASIS and WIDTH
-
-Flex relative %width depends on AVAILABLE space
-
-flex shorthand without explicit basis sets basis to 0%
-*/
-/*
-footer .logo svg * {
-    fill: hsl(193, 100%, 96%);
-    color: hsl(193, 100%, 96%);
-    
-    display: block;
-}
-*/
-/* LEARNINGS
-- can use SVG as a MASK to get single color, using CSS property "mask" with no-repeat center
-- alternatively: include svg code and apply fill to all svg elements
-*/
-
-.table {
-    display:flex;
-}
-
-h1 {
-    font-family: Poppins;
-}
-
-main {
-    background-color: white;
-}
-.aborder {
-    padding: 10px 40px;
-    border-radius: 50%;
-    background-color: hsl(322, 100%, 66%);
-}
-
-header a {
-    background-color: unset;
-}
-
-.shadow {
-    box-shadow: 0 0 10px lightgrey;
-}
-
-/* LEARNINGS SHADOW
-default shadow is 0, therefore none
-*/
-
-footer {
-    background-color: hsl(192, 100%, 9%);
-    color: hsl(193, 100%, 96%);
-    padding: 80px;
-    padding-top: 150px;
-}
-main {
-    margin: auto;
-    width: 80%;
-    margin-bottom: 150px;
-    padding: 50px;
-}
 .ready {
-    margin: auto;
-    width: 50%;
-    padding: 60px;
+    white-space: nowrap;
+    width: 65%;
+    padding: 30px 80px;
     text-align: center;
     background: white;
     border-radius: 20px;
@@ -270,63 +166,198 @@ main {
     transform: translateY(-50%) translateX(-50%);
     border: 1px solid white;
 }
-/*
-    absolute positioning note
-    ==> when no positioned ancestor
-        uses --- VIEWPORT (<html>) --- NOT body
-    ====> Solve by setting body as positioned element
+
+.ready h1 {
+    font-size: 35px;
+}
+
+.ready a {
+    display: inline-block;
+    font-size: 25px;
+}
+
+/* BOTTOM PART
 */
 
-@media screen and (max-width: 600px) {
-    .item, .container, .table {
+footer {
+    background-color: hsl(192, 100%, 9%);
+    color: hsl(193, 100%, 96%);
+    padding: 80px;
+    padding-top: 150px;
+}
+
+footer .logo {
+    height: 40px;
+    -webkit-mask: url(./images/logo.svg) no-repeat;
+    mask: url(./images/logo.svg) no-repeat;
+    background: hsl(193, 100%, 96%);
+}
+
+.table {
+    display: flex;
+}
+
+.table>* {
+    margin-top: 20px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.contact-item>* {
+    padding: 6px;
+    padding-right: 20px;
+}
+
+nav {
+    align-self: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    width: 350px;
+    margin: 20px 100px;
+}
+
+nav>* {
+    flex-basis: 150px;
+    flex-shrink: 0;
+    padding: 8px 20px;
+}
+
+/* ICONS
+*/
+
+.icon {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 1px solid hsl(193, 100%, 96%);
+    margin: 10px;
+}
+
+img.icon {
+    width: 12px;
+}
+
+
+/* MOBILE
+*/
+
+@media screen and (max-width: 1100px) {
+
+    .item,
+    .container,
+    .table {
         flex-direction: column;
         margin: 30px auto;
+        height: unset;
     }
-    main, footer, .container {
+
+    .container img {
+        width: 60%;
+    }
+    .container .intro {
         width: 100%;
-        padding: 0;
-        margin: 0;
     }
-    main,  {
+    .img-flex {
+        width: 45%;
+    }
+
+    main,
+    footer,
+    .container,
+    .container>* {
+        width: calc(100% - 50px);
+        padding: 10px;
+        margin: auto;
+    }
+
+
+    main {
         margin-bottom: 150px;
     }
-    footer {
-        margin-top: 90px;
-        padding-top: 30px;
-    }
-    .contact {
-        width: 90%;
-    }
-    .icons {
-        text-align: center;
-    }
-    footer {
-        padding-top: 60px;
-    }
-    .item, .item * {
+
+    .item,
+    .item > * {
         align-items: center;
-        padding: 3px;
+        padding: 25px;
         margin: 3px auto;
-        height: unset;
+        min-width: unset;
     }
     .item {
         margin: 30px auto;
     }
+    
     .text-flex {
         width: 100%;
     }
+
     .rev {
         flex-direction: column-reverse;
     }
+
     .ready {
         width: 90%;
-        padding: 6px;
-        transform: translateX(-50%);
+        padding: 15px;
+    }
+
+    footer {
+        font-size: 26px;
+        margin-top: 160px;
+        padding-top: 110px;
+    }
+    footer .logo {
+        display: table;
+        width: 250px;
+        margin: auto;
+        text-align: center;
+    }
+    .table {
+        width: 80%;
+        margin: auto;
+    }
+    .table nav {
+        margin: unset;
+    }
+    nav > * {
+        width: 350px;
+        flex-basis: 100%;
+        margin: 10px 0;
+    }
+    .contact {
+        width: 90%;
+    }
+
+    .logos {
+        text-align: center;
     }
 }
+
+
+/* REST
+*/
+
 .copyright {
+    font-size: smaller;
     text-align: right;
 }
 
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
