@@ -1,8 +1,9 @@
 
 body {
-    width: 1440px;
+    max-width: 1440px;
     margin:auto;
     font-family: "Open Sans";
+    position:relative;
 }
 a {
     text-decoration: none;
@@ -29,6 +30,16 @@ a {
 #hero .logo {
     width: 300px;
 }
+
+
+
+/* WORKFLOW LEARNINGS
+- the initial layout and planning is harder than adding padding and margins after
+- must consider mobile/desktop layout differences for responsive design
+- mobile serving: m-dot vs responsive vs dynamic serve
+    - vs. progressive web app
+*/
+
 #hero a.shadow {
     float: right;
 }
@@ -39,11 +50,11 @@ a {
     padding: 80px;
     margin: 50px auto;
     display: flex;
-    width: 80%;
     height:400px;
     border: 1px solid lightgrey;
     position: relative;
     border-radius: 20px;
+    overflow: visible;
 }
 .text-flex {
     width: 70%;
@@ -53,16 +64,15 @@ a {
     vertical-align: middle;
     height: 100%;
     padding: 50px;
+    flex-shrink: 0;
 }
 
+/* TODO
+how to shrink with resizing viewport?
+*/
 .img-flex {
-    height: 100%;
-}
-.img-flex img {
-    width:100%;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    max-height: 100%;
+    max-width: 300px;
 }
 
 /* JUSTIFY/ALIGN ITEMS 
@@ -243,6 +253,8 @@ footer {
     padding-top: 150px;
 }
 main {
+    margin: auto;
+    width: 80%;
     margin-bottom: 150px;
     padding: 50px;
 }
@@ -254,11 +266,64 @@ main {
     background: white;
     border-radius: 20px;
     position: absolute;
-    left: 25%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
     border: 1px solid white;
 }
+/*
+    absolute positioning note
+    ==> when no positioned ancestor
+        uses --- VIEWPORT (<html>) --- NOT body
+    ====> Solve by setting body as positioned element
+*/
 
+@media screen and (max-width: 600px) {
+    .item, .container, .table {
+        flex-direction: column;
+        margin: 30px auto;
+    }
+    main, footer, .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    main,  {
+        margin-bottom: 150px;
+    }
+    footer {
+        margin-top: 90px;
+        padding-top: 30px;
+    }
+    .contact {
+        width: 90%;
+    }
+    .icons {
+        text-align: center;
+    }
+    footer {
+        padding-top: 60px;
+    }
+    .item, .item * {
+        align-items: center;
+        padding: 3px;
+        margin: 3px auto;
+        height: unset;
+    }
+    .item {
+        margin: 30px auto;
+    }
+    .text-flex {
+        width: 100%;
+    }
+    .rev {
+        flex-direction: column-reverse;
+    }
+    .ready {
+        width: 90%;
+        padding: 6px;
+        transform: translateX(-50%);
+    }
+}
 .copyright {
     text-align: right;
 }
