@@ -8,6 +8,7 @@ body {
     font-family: "Open Sans";
     position: relative;
     background: white;
+    overflow-x: hidden;
 }
 
 html {
@@ -24,6 +25,7 @@ html {
 * {
     box-sizing: border-box;
 }
+
 img {
     box-sizing: content-box;
 }
@@ -44,6 +46,9 @@ h2 {
     font-size: 30px;
     line-height: 1.2;
 }
+h2:hover {
+    cursor: pointer;
+}
 
 p {
     margin: 45px 0;
@@ -58,6 +63,12 @@ p {
     border-radius: 2em / 50%;
     background-color: hsl(322, 100%, 66%);
     color: white;
+    transition: .2s;
+}
+
+.aborder:hover {
+    background-color: white;
+    color: hsl(192, 100%, 9%);
 }
 
 .shadow {
@@ -81,6 +92,10 @@ p {
     color: unset;
     margin-top: -1em;
 }
+.top a:hover {
+    background-color: hsl(322, 100%, 66%);
+    color: white;
+}
 
 
 .container {
@@ -91,7 +106,7 @@ p {
     padding: 20px 0;
 }
 
-.container > * {
+.container>* {
     padding: 30px 0px;
 }
 
@@ -102,9 +117,12 @@ p {
 .container .intro {
     width: 44%;
 }
+
 .intro a {
     margin: 60px 0;
+    font-size: 24px;
 }
+
 .container img {
     width: 55%;
 }
@@ -126,11 +144,20 @@ main {
     padding: 80px;
     margin: 50px auto;
     min-width: 900px;
-
     border: 1px solid lightgrey;
     position: relative;
     border-radius: 20px;
     overflow: visible;
+    transition: .2s all;
+    transform: translateX(-50%);
+    opacity: .25;
+}
+.rev {
+    transform: translateX(50%);
+}
+.in {
+    transform: unset;
+    opacity: 1;
 }
 
 .text-flex {
@@ -159,7 +186,7 @@ how to shrink with resizing viewport?
 */
 
 .ready {
- /* white-space: nowrap; */
+    /* white-space: nowrap; */
     width: 65%;
     padding: 30px 80px;
     text-align: center;
@@ -167,10 +194,15 @@ how to shrink with resizing viewport?
     border-radius: 20px;
     position: absolute;
     left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    transition: .2s all;
+    opacity: .5;
+    transform: translateX(-50%);
     border: 1px solid white;
 }
-
+.readyin {
+    transform: translateY(-50%) translateX(-50%);
+    opacity: 1;
+}
 .ready h1 {
     font-size: 35px;
 }
@@ -178,6 +210,10 @@ how to shrink with resizing viewport?
 .ready a {
     display: inline-block;
     font-size: 25px;
+}
+.ready a:hover {
+    background-color: hsl(192, 100%, 9%);
+    color: white;
 }
 
 /* BOTTOM PART
@@ -195,6 +231,12 @@ footer .logo {
     -webkit-mask: url(./images/logo.svg) no-repeat;
     mask: url(./images/logo.svg) no-repeat;
     background: hsl(193, 100%, 96%);
+    transition: .2s;
+    padding: 20px 0;
+}
+
+footer .logo:hover {
+    background: hsl(322, 100%, 66%);
 }
 
 .table {
@@ -230,10 +272,13 @@ nav {
     margin: 20px 100px;
 }
 
-nav>* {
+nav > * {
     flex-basis: 150px;
     flex-shrink: 0;
     padding: 8px 20px;
+}
+nav a:hover, .contact a:hover {
+    text-decoration: underline;
 }
 
 /* ICONS
@@ -241,13 +286,20 @@ nav>* {
 
 .icon {
     text-align: center;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
     vertical-align: middle;
     border-radius: 50%;
     border: 1px solid hsl(193, 100%, 96%);
     margin: 10px;
+    transition: .2s;
+}
+
+.icon:hover {
+    background: white;
+    color: hsl(192, 100%, 9%);
+    cursor: pointer;
 }
 
 img.icon {
@@ -255,10 +307,29 @@ img.icon {
 }
 
 
+
+/* REST
+*/
+
+.copyright {
+    font-size: smaller;
+    text-align: right;
+    padding: 16px 0;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
 /* MOBILE
 */
 @media screen and (max-width: 1100px) and (orientation: landscape),
-        screen and  (max-height:1100px) and (orientation: portrait) {
+screen and (max-height:1100px) and (orientation: portrait) {
 
     .item,
     .container,
@@ -271,12 +342,14 @@ img.icon {
     .container img {
         width: 60%;
     }
+
     .container .intro {
         width: 100%;
     }
+
     .img-flex {
         width: 45%;
-        height:unset;
+        height: unset;
     }
 
     main,
@@ -294,16 +367,17 @@ img.icon {
     }
 
     .item,
-    .item > * {
+    .item>* {
         align-items: center;
         padding: 25px;
         margin: 3px auto;
         min-width: unset;
     }
+
     .item {
         margin: 30px auto;
     }
-    
+
     .text-flex {
         width: 100%;
     }
@@ -319,27 +393,32 @@ img.icon {
 
     footer {
         font-size: 26px;
-        margin-top: 160px;
+        margin-top: 180px;
         padding-top: 110px;
     }
+
     footer .logo {
         display: table;
         width: 250px;
         margin: auto;
         text-align: center;
     }
+
     .table {
         width: 80%;
         margin: auto;
     }
+
     .table nav {
         margin: unset;
     }
-    nav > * {
+
+    nav>* {
         width: 350px;
         flex-basis: 100%;
         margin: 10px 0;
     }
+
     .contact {
         width: 90%;
     }
@@ -347,22 +426,7 @@ img.icon {
     .logos {
         text-align: center;
     }
-}
-
-
-/* REST
-*/
-
-.copyright {
-    font-size: smaller;
-    text-align: right;
-}
-
-.attribution {
-    font-size: 11px;
-    text-align: center;
-}
-
-.attribution a {
-    color: hsl(228, 45%, 44%);
+    .copyright {
+        text-align: center;
+    }
 }

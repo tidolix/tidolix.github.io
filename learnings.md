@@ -22,14 +22,18 @@ font-size can be relative using percentage to scale from inherited size
 fill remaining width via css: float, flex, table
 CSS specificity OVERRULES ORDER (later definition)
 flex-basis overrules width/height
-mobile resolutions
+mobile screen are typically 2-5x higher DPI than monitors
     > high-res phones may declare themselves as lower-res to prevent
-        desktop-optimized display of websites
+        desktop version of websites, accounting for high DPI
+    > typically declare themselves as 640x360
     > Narrow screen devices (e.g. mobiles) render pages in a virtual window or viewport, which is usually wider than the screen, and then shrink the rendered result down so it can all be seen at once. Users can then pan and zoom to see different areas of the page. For example, if a mobile screen has a width of 640px, pages might be rendered with a virtual viewport of 980px, and then it will be shrunk down to fit into the 640px space.
 problem with zooming and relative sizing
 IMAGE PADDING with border-box sizing affects image aspect ratio
 media queries: width, height, aspect-ratio, orientation
-
+git amending commits
+> Amended commits are actually entirely new commits and the previous commit will no longer be on your current branch.
+CSS opacity is float value
+Can use comma in querySelectorAll (JS)
 
 /* Child selector learnings
 :last-child selects an element that is the last child
