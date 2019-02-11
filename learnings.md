@@ -25,7 +25,11 @@ flex-basis overrules width/height
 mobile resolutions
     > high-res phones may declare themselves as lower-res to prevent
         desktop-optimized display of websites
+    > Narrow screen devices (e.g. mobiles) render pages in a virtual window or viewport, which is usually wider than the screen, and then shrink the rendered result down so it can all be seen at once. Users can then pan and zoom to see different areas of the page. For example, if a mobile screen has a width of 640px, pages might be rendered with a virtual viewport of 980px, and then it will be shrunk down to fit into the 640px space.
 problem with zooming and relative sizing
+IMAGE PADDING with border-box sizing affects image aspect ratio
+media queries: width, height, aspect-ratio, orientation
+
 
 /* Child selector learnings
 :last-child selects an element that is the last child
